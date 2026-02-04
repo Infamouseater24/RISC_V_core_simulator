@@ -39,3 +39,15 @@ int load_binary(const char *filename) {
     printf("Loaded %ld bytes from %s\n", size, filename);
     return 0;
 }
+
+uint32_t get_bits(uint32_t val, int high, int low) {
+    uint32_t mask = (1 << (high - low + 1)) - 1;
+    return (val >> low) & mask;
+}
+
+uint32_t sign_extend(uint32_t val, int bits) {
+    if (val & (1 << (bits - 1))) {
+        return val | (0xFFFFFFFF << bits);
+    }
+    return val;
+}

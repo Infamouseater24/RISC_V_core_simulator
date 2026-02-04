@@ -1,4 +1,25 @@
 #include "hazard.h"
+#include <stdio.h>
+#include <string.h>
+#include "memory.h"
+#include "opcodes.h"
+#include "utils.h"
+
+// Global Definitions
+CPU_State cpu;
+IF_ID_Latch if_id;
+ID_EX_Latch id_ex;
+EX_MEM_Latch ex_mem;
+MEM_WB_Latch mem_wb;
+
+void cpu_init() {
+    memset(&cpu, 0, sizeof(CPU_State));
+    memset(&if_id, 0, sizeof(IF_ID_Latch));
+    memset(&id_ex, 0, sizeof(ID_EX_Latch));
+    memset(&ex_mem, 0, sizeof(EX_MEM_Latch));
+    memset(&mem_wb, 0, sizeof(MEM_WB_Latch));
+    // cpu.pc = 0; // Already 0 by memset
+}
 
 // ... (existing code)
 

@@ -3,7 +3,7 @@
 
 #include "cpu.h"
 
-typedef struct {
+typedef struct HazardControls {
     bool pc_write;
     bool if_id_write;
     bool control_mux_flush; // Insert bubble (stall)
